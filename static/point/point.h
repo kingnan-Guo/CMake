@@ -31,8 +31,6 @@ public:
     minPoint(int c, int d): Point(c, d){
 
     }
-
-
 };
 
 #endif //CMAKEPROJECT_POINT_H

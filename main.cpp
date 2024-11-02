@@ -2,6 +2,15 @@
 #include "test.hpp"
 #include "point.h"
 #include <cstring>
+#include <thread>
+#include "PrintTask.h"
+
+
+void foo(int Z) {
+    for (int i = 0; i < Z; i++) {
+        cout << "foo  \n";
+    }
+}
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -45,7 +54,22 @@ int main() {
 
 
 
+    PrintTask printTask(20);
+
+//    printTask.print();
+
+    thread th1(foo, 3);
+    th1.join();
+
+
+//    std::thread th2(&PrintTask::print, &printTask);
+    std::thread th2([&printTask]() { printTask.print(); });
+
+    th2.join();
+
 
 
     return 0;
 }
+
+
