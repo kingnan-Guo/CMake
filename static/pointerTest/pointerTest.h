@@ -13,6 +13,8 @@ public:
     void printPointerTest();
     void sendPointer();
     void handleTest();
+    void openFile();
+
 };
 
 #endif //CMAKEPROJECT_POINTERTEST_H

@@ -192,4 +192,23 @@ void pointerTest::handleTest(){
     printf("pt[0] = %d\n", pt[0]);
 }
 
+void pointerTest::openFile(){
+    char data;
+    char datas[20];
+//    FILE * f = fopen("D:\\text.txt", "r");
+    FILE * f = fopen("D:\\text.txt", "r");
+    fputc('G', f);
+
+    fputs("kingnan", f);
+
+    data = fgetc(f);
+    fgets(datas, 10, f);
+
+    fclose(f);
+
+    printf("%c \n", data);
+    printf(datas);
+    return;
+}
+
 

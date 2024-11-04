@@ -76,6 +76,8 @@ int main() {
     pointertest.sendPointer();
     pointertest.handleTest();
 
+    pointertest.openFile();
+
 
     return 0;
 }
