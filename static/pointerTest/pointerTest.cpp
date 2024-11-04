@@ -4,6 +4,9 @@
 #include <iostream>
 #include "pointerTest.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
 
 
 //signed  char : -2^7 ~ 2^7-1
@@ -108,9 +111,85 @@ void pointerTest::printPointerTest() {
 // 变量 --->  （ 取内容 * ） <--- 指针 <--- （ 取内容 * ） <--- 二级指针
 
 
-void pointerTest::sendPointer(){
+// 如果是 函数 的 值传递 ，那么 会在 传递时  先复制出来 一份 要传的 参数 到 内存中，然后 再 传递给 函数， 再其他函数值 改变 参数 内的值 不会影响到 主函数的参数
+
+
+int findMax(const int * array, int count){
+//    array[2] = 30;
+    int i;
+    int max = array[0];
+    for (int j = 0; j < count; j++) {
+        if(array[j] > max){
+            max = array[j];
+        }
+    }
+    return max;
 
 }
 
+
+void findMaxAndCount( int * max, int * count, int * array,int length){
+    int i;
+    * max = array[0];
+    * count = 1;
+    for (int j = 0; j < length; ++j) {
+        if(array[j] > * max){
+            *max = array[j];
+            * count = 1;
+        } else if(array[j] == * max){
+            (* count) ++;
+        }
+    }
+
+}
+
+// 在这个 案例里  也会申请 新的内存不过是  int * array ，8个字节的地址； array = arr;
+void pointerTest::sendPointer(){
+    int arr[] = {1, 2, 3, 4, 4};//  数组名 就是 指针  arr
+    int  Max;
+
+    Max = findMax(arr, 5);
+
+    printf("pointerTest Max = %d \n", Max);
+    char stringA = 'A';
+    char * cpa = &stringA;
+//    strlen(cpa);
+
+    int  count = 0;
+    findMaxAndCount(&Max, &count, arr, 5);
+
+    printf("findMaxAndCount Max  = %d \n", Max);
+    printf("findMaxAndCount count  = %d \n", count);
+
+
+
+
+    char str1[20];
+    char  str2[] = "hello";
+    strcpy(str1, str2);// 将  str2  复制 给 str1
+
+    printf(str1);
+    printf("\n");
+
+
+
+
+
+
+
+}
+
+
+int Time[] = {11,2,33,4};
+int * GetTime(){
+    return  Time;
+}
+
+
+void pointerTest::handleTest(){
+    int * pt;
+    pt = GetTime();
+    printf("pt[0] = %d\n", pt[0]);
+}
 
 

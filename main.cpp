@@ -73,6 +73,8 @@ int main() {
     pointerTest pointertest;
     pointertest.printPointerTest();
 
+    pointertest.sendPointer();
+    pointertest.handleTest();
 
 
     return 0;
