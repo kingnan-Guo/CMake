@@ -11,6 +11,7 @@ private:
     int num;
 public:
     void printPointerTest();
+    void sendPointer();
 };
 
 #endif //CMAKEPROJECT_POINTERTEST_H

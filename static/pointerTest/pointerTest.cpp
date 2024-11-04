@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "pointerTest.h"
+#include <stdlib.h>
 
 
 //signed  char : -2^7 ~ 2^7-1
@@ -45,19 +46,71 @@ void pointerTest::printPointerTest() {
 
 
 
-    // 数组 指针
+    // 数组 就是 指针
     // 数组 是 一些 相同数据 类型 的 变量 组成的集合。其数组名 即为 指向 该数据 类型的 指针， 数组的定义 等效于 申请内存 ，定义指针  和 初始化
 
     // 申请内存 ，定义 char * cs = xxxxxx, 初始化 数据
     char cs[] = {0x33, 0x44, 0x55};
+    char * pArr;
+    pArr = cs;
     printf(" cs  =  %d\n", cs);
     printf(" & cs  =  %d\n", & cs);
 
-    printf(" * cs  =  %d\n", * cs);
-    printf(" cs[0] 等效于 * cs %d\n", cs[0]);
-    printf(" cs[1] 等效于 * (cs +  1) %d\n", cs[1]);
-    printf(" cs[2] 等效于 * (cs +  2) %d\n", cs[2]);
+    printf(" * cs  =  %x\n", * cs);
+    printf(" cs[0] 等效于 * cs %x\n", cs[0]);
+    printf(" cs[1] 等效于 * (cs +  1) %x\n", cs[1]);
+    printf(" cs[2] 等效于 * (cs +  2) %x\n", cs[2]);
+
+
+    printf(" pArr  =  %x\n", pArr);
+    printf(" * pArr  =  %x\n", * pArr);
+    printf(" * pArr  =  %x\n", * (pArr + 1));
+
+    // 设置内存
+    int * PNumber;
+    PNumber = (int * )malloc(3 * 4);// 3个变量 每个变量 4 个字节
+    * (PNumber + 0) = 0x33;
+    * (PNumber + 1) = 0x34;
+    * (PNumber + 2) = 0x35;
+
+
+
+
+    printf(" PNumber  =  %x\n", PNumber);
+    printf(" * PNumber  0 =  %x\n", * PNumber);
+    printf(" * PNumber  1 =  %x\n", * (PNumber + 1));
+    printf(" * PNumber  2 =  %x\n", * (PNumber + 2));
+
 
 
 
 }
+
+
+//指针的应用 =====================================
+
+// 传递参数:
+//  1、使用指针传递 大容量的参数， 主函数 和子函数 使用的 是 同一套 数据 ， 避免了 参数传递过程的 数据复制，提高了 运行效率。 减少 内存占用
+//  2、使用指针传递输出参数， 利用主函数 和 子函数 使用同以他数据的特性 实现 数据的返回 ，可 实现 饭返回值函数的 设计
+
+// 传递 返回值:
+// 将 模板内的 共有部分返回，让主函数持有 模块 的 句柄， 便于程序对指定对象的 操作
+
+// 直接访问 物理地址下的数据:
+// 访问 硬件指定内存下的数据， 如  设备 ID 号
+// 将复杂格式的数据 转为 字符串，方便 通信 与 存储
+
+// 指针注意事项 ===========================
+// 在对指针取内容之前， 一定要确保指针在合法的位置， 否则 将会导致 程序 出现不可 预知 的错误
+// 同级 指针之间才能 互相 赋值，跨及辅助将会导致 编译器报错 或者 警告
+
+// 变量 --->  （ 取地址 & ） ---> 指针 ---> （ 取地址 & ） ---> 二级指针
+// 变量 --->  （ 取内容 * ） <--- 指针 <--- （ 取内容 * ） <--- 二级指针
+
+
+void pointerTest::sendPointer(){
+
+}
+
+
+
