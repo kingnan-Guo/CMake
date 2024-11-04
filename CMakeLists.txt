@@ -14,6 +14,7 @@ include_directories(
         source
         static/test
         static/point
+        static/pointerTest
 )
 
 file(GLOB_RECURSE static_SOURCES "static/*.*" )

@@ -4,6 +4,7 @@
 #include <cstring>
 #include <thread>
 #include "PrintTask.h"
+#include "pointerTest.h"
 
 
 void foo(int Z) {
@@ -66,6 +67,11 @@ int main() {
     std::thread th2([&printTask]() { printTask.print(); });
 
     th2.join();
+
+
+
+    pointerTest pointertest;
+    pointertest.printPointerTest();
 
 
 

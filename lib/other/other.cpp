@@ -4,4 +4,3 @@
 
 #include "other.h"
 
-other ::
