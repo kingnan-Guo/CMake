@@ -4,7 +4,10 @@
 
 #ifndef CMAKE_TEST_HPP
 #define CMAKE_TEST_HPP
-#include <iostream>
-using namespace std;
+
+
+
+extern "C" {
 void testprint();
+};
 #endif //CMAKE_TEST_HPP

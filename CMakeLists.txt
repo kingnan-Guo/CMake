@@ -18,7 +18,7 @@ include_directories(
 )
 
 file(GLOB_RECURSE static_SOURCES "static/*.*" )
-file(GLOB_RECURSE SOURCES "main.cpp" )
+file(GLOB_RECURSE SOURCES "main.c" )
 
 
 add_executable(CmakeProject ${SOURCES} ${static_SOURCES})

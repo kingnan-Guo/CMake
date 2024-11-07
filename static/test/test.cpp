@@ -1,5 +1,5 @@
 #include <iostream>
-#include "test.hpp"
+#include "test.h"
 
 void testprint(){
     std::cout << "testprint" << std::endl;
