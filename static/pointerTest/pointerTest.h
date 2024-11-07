@@ -17,4 +17,9 @@ public:
 
 };
 
+extern "C" {
+
+
+}
+
 #endif //CMAKEPROJECT_POINTERTEST_H
